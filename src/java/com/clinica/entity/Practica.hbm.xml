@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2019 07:51:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.clinica.entity.Practica" table="practica" schema="public" optimistic-lock="version">
+        <id name="codigo" type="string">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carrera" class="com.clinica.entity.Carrera" fetch="select">
+            <column name="codigocarrera" not-null="true" />
+        </many-to-one>
+        <many-to-one name="semestre" class="com.clinica.entity.Semestre" fetch="select">
+            <column name="codigosemestre" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
+        </property>
+        <property name="fechacreacion" type="timestamp">
+            <column name="fechacreacion" length="22" not-null="true" />
+        </property>
+        <property name="fechaactualizacion" type="timestamp">
+            <column name="fechaactualizacion" length="22" />
+        </property>
+        <property name="fechaeliminacion" type="timestamp">
+            <column name="fechaeliminacion" length="22" />
+        </property>
+        <set name="registros" table="registro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigopractica" not-null="true" />
+            </key>
+            <one-to-many class="com.clinica.entity.Registro" />
+        </set>
+    </class>
+</hibernate-mapping>

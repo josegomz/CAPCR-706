@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2019 07:51:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.clinica.entity.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="idusuario" type="long">
+            <column name="idusuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rol" class="com.clinica.entity.Rol" fetch="select">
+            <column name="tipo" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" not-null="true" />
+        </property>
+        <property name="nombreusuario" type="string">
+            <column name="nombreusuario" not-null="true" />
+        </property>
+        <property name="contrase&#195;&#177;a" type="string">
+            <column name="contrase&#195;&#177;a" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

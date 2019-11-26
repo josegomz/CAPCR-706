@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2019 07:51:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.clinica.entity.Registro" table="registro" schema="public" optimistic-lock="version">
+        <id name="idregistro" type="long">
+            <column name="idregistro" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="alumno" class="com.clinica.entity.Alumno" fetch="select">
+            <column name="matriculaalumno" not-null="true" />
+        </many-to-one>
+        <many-to-one name="practica" class="com.clinica.entity.Practica" fetch="select">
+            <column name="codigopractica" not-null="true" />
+        </many-to-one>
+        <property name="horaentrada" type="time">
+            <column name="horaentrada" length="8" />
+        </property>
+        <property name="horasalida" type="time">
+            <column name="horasalida" length="8" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" />
+        </property>
+        <property name="sustituye" type="string">
+            <column name="sustituye" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" not-null="true" />
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -58,7 +58,7 @@ create table Registro(
     sustituye text not null,
     estado text not null,
     comentario text,
-    constraint pk_rol primary key(idrol),
+    constraint pk_registro primary key(idregistro),
     constraint fk_alumno foreign key (matriculaAlumno)	references Alumno(matricula)
     on delete cascade
     on update cascade,
