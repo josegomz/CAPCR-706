@@ -5,7 +5,7 @@
  */
 package com.clinica.model;
 
-import com.clinica.entity.Rol;
+import com.clinica.entity.Semestre;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -16,19 +16,18 @@ import org.hibernate.cfg.Configuration;
  *
  * @author macbookair
  */
-public class RolModelImp implements IRolModel {
-
+public class SemestreModelImp implements ISemestreModel{
     SessionFactory sessionFactory = null;
     Session session = null;
-
+    
     @Override
-    public List<Rol> obtenerRoles() {
-        List<Rol> Lista = null;
+    public List<Semestre> obtenerSemestres() {
+        List<Semestre> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
-            Lista = session.createQuery("FROM Rol").list();
-            for (Rol l : Lista) {
+            Lista = session.createQuery("FROM Semestre").list();
+            for (Semestre l : Lista) {
                 System.out.println("Nombre: " + l.getNombre());
             }
             session.close();
@@ -39,4 +38,10 @@ public class RolModelImp implements IRolModel {
         }
         return Lista;
     }
+    
+    public static void main(String[] args) {
+        ISemestreModel sm = new SemestreModelImp();
+        List<Semestre> lista = sm.obtenerSemestres();
+    }
+    
 }

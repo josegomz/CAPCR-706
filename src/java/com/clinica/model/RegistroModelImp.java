@@ -5,7 +5,7 @@
  */
 package com.clinica.model;
 
-import com.clinica.entity.Rol;
+import com.clinica.entity.Registro;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -16,20 +16,20 @@ import org.hibernate.cfg.Configuration;
  *
  * @author macbookair
  */
-public class RolModelImp implements IRolModel {
+public class RegistroModelImp implements IRegistroModel{
 
     SessionFactory sessionFactory = null;
     Session session = null;
-
+    
     @Override
-    public List<Rol> obtenerRoles() {
-        List<Rol> Lista = null;
+    public List<Registro> obtenerRegistros() {
+        List<Registro> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
-            Lista = session.createQuery("FROM Rol").list();
-            for (Rol l : Lista) {
-                System.out.println("Nombre: " + l.getNombre());
+            Lista = session.createQuery("FROM Registro").list();
+            for (Registro l : Lista) {
+                System.out.println("Nombre: " + l.getEstado());
             }
             session.close();
             sessionFactory.close();
@@ -39,4 +39,6 @@ public class RolModelImp implements IRolModel {
         }
         return Lista;
     }
+
+    
 }
