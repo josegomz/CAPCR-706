@@ -1,5 +1,5 @@
 package com.clinica.entity;
-// Generated 26/11/2019 07:51:05 AM by Hibernate Tools 4.3.1
+// Generated 28/11/2019 01:53:43 PM by Hibernate Tools 4.3.1
 
 
 
@@ -14,18 +14,18 @@ public class Usuario  implements java.io.Serializable {
      private String nombre;
      private String apellido;
      private String nombreusuario;
-     private String contraseña;
+     private String contrasenia;
 
     public Usuario() {
     }
 
-    public Usuario(long idusuario, Rol rol, String nombre, String apellido, String nombreusuario, String contraseña) {
+    public Usuario(long idusuario, Rol rol, String nombre, String apellido, String nombreusuario, String contrasenia) {
        this.idusuario = idusuario;
        this.rol = rol;
        this.nombre = nombre;
        this.apellido = apellido;
        this.nombreusuario = nombreusuario;
-       this.contraseña = contraseña;
+       this.contrasenia = contrasenia;
     }
    
     public long getIdusuario() {
@@ -63,12 +63,12 @@ public class Usuario  implements java.io.Serializable {
     public void setNombreusuario(String nombreusuario) {
         this.nombreusuario = nombreusuario;
     }
-    public String getContraseña() {
-        return this.contraseña;
+    public String getContrasenia() {
+        return this.contrasenia;
     }
     
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
 

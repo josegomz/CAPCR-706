@@ -48,13 +48,12 @@ Contributor(s):
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping resource="com/clinica/entity/Rol.hbm.xml"/>
-    <mapping resource="com/clinica/entity/Registro.hbm.xml"/>
     <mapping resource="com/clinica/entity/Usuario.hbm.xml"/>
-    <mapping resource="com/clinica/entity/Alumno.hbm.xml"/>
-    <mapping resource="com/clinica/entity/Reservacion.hbm.xml"/>
     <mapping resource="com/clinica/entity/Carrera.hbm.xml"/>
     <mapping resource="com/clinica/entity/Practica.hbm.xml"/>
+    <mapping resource="com/clinica/entity/Rol.hbm.xml"/>
     <mapping resource="com/clinica/entity/Semestre.hbm.xml"/>
+    <mapping resource="com/clinica/entity/Alumno.hbm.xml"/>
+    <mapping resource="com/clinica/entity/Registro.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

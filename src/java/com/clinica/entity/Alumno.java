@@ -1,5 +1,5 @@
 package com.clinica.entity;
-// Generated 26/11/2019 07:51:05 AM by Hibernate Tools 4.3.1
+// Generated 28/11/2019 01:53:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

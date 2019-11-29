@@ -5,13 +5,13 @@
  */
 package com.clinica.model;
 
-import com.clinica.entity.Practica;
+import com.clinica.entity.Rol;
 import java.util.List;
 
 /**
  *
- * @author labtw08
+ * @author macbookair
  */
-public interface IPracticaModel {
-   public List<Practica> obtenerPracticas();
+public interface IRolModel {
+    public List<Rol> obtenerRoles();
 }
