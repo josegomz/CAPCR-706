@@ -1,14 +1,9 @@
-package com.clinica.model;
+package com.clinica.service;
 
 import com.clinica.entity.Usuario;
 import java.util.List;
 
-/**
- *
- * @author macbookair
- */
-public interface IUsuarioModel {
-    public List<Usuario> obtenerUsuarios();
+public interface IUsuarioService {
     public void crearRegistro(Usuario usuario);
     public Usuario obtenerRegistro(long idUsuario);
     public void actualizararRegistro(Usuario usuario);
