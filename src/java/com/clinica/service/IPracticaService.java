@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.clinica.model;
+package com.clinica.service;
 
 import com.clinica.entity.Practica;
 import java.util.List;
 
 /**
  *
- * @author macbookair
+ * @author labtw08
  */
-public interface IPracticaModel {
+public interface IPracticaService {
     public List<Practica> obtenerRegistros();
-    public Practica obtenerRegistro();
-    public void crearRegistro();
-    public void eliminarRegistro();
-    public void editarRegistro();
 }

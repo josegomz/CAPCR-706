@@ -22,7 +22,7 @@ public class PracticaModelImp implements IPracticaModel {
     Session session = null;
 
     @Override
-    public List<Practica> obtenerPracticas() {
+    public List<Practica> obtenerRegistros() {
         List<Practica> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -38,5 +38,29 @@ public class PracticaModelImp implements IPracticaModel {
             System.out.println("Error");
         }
         return Lista;
+    }
+    public static void main(String[] args) {
+        IPracticaModel pm = new PracticaModelImp();
+        System.out.println(pm.obtenerRegistros());
+    }
+
+    @Override
+    public Practica obtenerRegistro() {
+        return null;
+    }
+
+    @Override
+    public void crearRegistro() {
+        
+    }
+
+    @Override
+    public void eliminarRegistro() {
+        
+    }
+
+    @Override
+    public void editarRegistro() {
+        
     }
 }
