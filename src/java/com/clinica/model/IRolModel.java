@@ -13,5 +13,9 @@ import java.util.List;
  * @author macbookair
  */
 public interface IRolModel {
-    public List<Rol> obtenerRoles();
+    public List<Rol> obtenerRegistros();  
+    public void crearRegistro(Rol rol);
+    public void actualizarRegistro(Rol rol);
+    public void eliminarRegistro(Rol rol);
+    public Rol obtenerRegistro(Long idRol);
 }
