@@ -10,9 +10,12 @@ import com.clinica.service.IPracticaService;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.RowEditEvent;
 
 
 
@@ -23,7 +26,7 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean(name="practicaBean")
 @ViewScoped
 public class PracticaController implements Serializable{
-    @ManagedProperty("#{ligaService}")
+    @ManagedProperty("#{practicaService}")
     private IPracticaService service;
     private Practica practica;
     private  List<Practica> listaPractica;
@@ -61,10 +64,22 @@ public class PracticaController implements Serializable{
         System.out.println("Creando Práctica");
         this.service.crearRegistro(practica);
     }
-    public void eliminarRegistro(){
+    public void eliminarRegistro(Practica practica){
         System.out.println("Eliminando Registro");
         this.service.eliminarRegistro(practica);
         this.listaPractica =service.obtenerRegistros();
+    }
+     public void onRowEdit(RowEditEvent event){
+        Practica practicaSelected =((Practica) event.getObject());
+        service.actualizarRegistro(practicaSelected);
+        FacesMessage mensaje = new FacesMessage("Registro Actualizado Correctamente",
+                practicaSelected.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
+     public void onRowCancel(RowEditEvent event){
+        FacesMessage mensaje = new FacesMessage("Actualización cancelada",
+                ((Practica) event.getObject()).getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
     
 }
