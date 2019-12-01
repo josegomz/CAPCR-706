@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.clinica.model;
+package com.clinica.service;
 
 import com.clinica.entity.Semestre;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author macbookair
  */
-public interface ISemestreModel {
+public interface ISemestreService {
     public List<Semestre> obtenerSemestres();
     public Semestre obtenerRegistro(String codigo);
     public void crearRegistro(Semestre semestre);
