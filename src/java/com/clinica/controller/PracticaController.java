@@ -5,7 +5,9 @@
  */
 package com.clinica.controller;
 
+import com.clinica.entity.Carrera;
 import com.clinica.entity.Practica;
+import com.clinica.entity.Semestre;
 import com.clinica.service.IPracticaService;
 import java.io.Serializable;
 import java.util.List;
@@ -29,7 +31,25 @@ public class PracticaController implements Serializable{
     @ManagedProperty("#{practicaService}")
     private IPracticaService service;
     private Practica practica;
+    private Semestre selectedSemestre;
+    private Carrera selectedCarrera;
     private  List<Practica> listaPractica;
+
+    public Semestre getSelectedSemestre() {
+        return selectedSemestre;
+    }
+
+    public void setSelectedSemestre(Semestre selectedSemestre) {
+        this.selectedSemestre = selectedSemestre;
+    }
+
+    public Carrera getSelectedCarrera() {
+        return selectedCarrera;
+    }
+
+    public void setSelectedCarrera(Carrera selectedCarrera) {
+        this.selectedCarrera = selectedCarrera;
+    }
 
     @PostConstruct
     public void init(){
@@ -56,8 +76,8 @@ public class PracticaController implements Serializable{
         return listaPractica;
     }
 
-    public void setListaPractica(List<Practica> listaLiga) {
-        this.listaPractica = listaLiga;
+    public void setListaPractica(List<Practica> listaPractica) {
+        this.listaPractica = listaPractica;
     }
     
     public void crearRegistro(){

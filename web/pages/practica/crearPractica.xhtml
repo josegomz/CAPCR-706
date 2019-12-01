@@ -23,13 +23,26 @@
                                          required="true"
                                          label="Nombre "/>
                             <h:outputText value="Código Semestre: *"/>
-                            <p:inputText value="#{practicaBean.practica.semestre.codigo}"
-                                         required="true"
-                                         label="Semestre "/>
-                            <h:outputText value="Código Carrera *"/>
-                            <p:inputText value="#{practicaBean.practica.carrera.codigo}"
-                                         required="true"
-                                         label="Carrera "/>
+                            <p:selectOneMenu
+                                value="#{practicaBean.selectedSemestre}"
+                                
+                                >
+                                <f:selectItem itemLabel="Seleccione un Semestre"/>
+                                <f:selectItems value="#{semestreBean.listSemestre}"
+                                               var="semestre"
+                                               itemLabel="#{semestre.codigo} - #{semestre.nombre}"/>
+                                
+                            </p:selectOneMenu>
+                            <p:selectOneMenu
+                                value="#{practicaBean.selectedCarrera}"
+                                
+                                >
+                                <f:selectItem itemLabel="Seleccione una Carrera"/>
+                                <f:selectItems value="#{carreraBean.listCarrera}"
+                                               var="carrera"
+                                               itemLabel="#{carrera.codigo} - #{carrera.nombre}"/>
+                                
+                            </p:selectOneMenu>
                             <br/>
                             <br/>
                             <br/>
