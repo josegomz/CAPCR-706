@@ -114,24 +114,12 @@ public class UsuarioModelImp implements IUsuarioModel {
             System.out.println(e.getMessage());
         }
     }
-
+    
     public static void main(String[] args) {
         IUsuarioModel um = new UsuarioModelImp();
+        System.out.println("******Todos los usuarios********");
+        um.obtenerUsuarios();
         
-        Rol r = new Rol();
-        r.setNombre("Admin");
-//        r.setUsuarios(usuarios);
-        
-        Usuario u = new Usuario();
-        u.setNombre("Juan");
-        u.setApellido("Perez");
-        u.setNombreusuario("PereLopez");
-        u.setRol(r);
-        um.crearRegistro(u);
-        
-//        System.out.println(um.obtenerUsuarios());
-//System.out.println(um.obtenerRegistros());
-
     }
 
 }

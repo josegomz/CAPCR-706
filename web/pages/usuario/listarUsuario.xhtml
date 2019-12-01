@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+
+            <ui:define name="content">
+                <h:form id="idForm">
+                    <p:growl id="idMensaje" showDetail="true"/>
+                    <p:dataTable id="idTabla" 
+                                 var="registro" 
+                                 value="#{usuarioBean.listaUsuario}" 
+                                 rowKey="#{registro.idusuario}"  
+                                 editable="true" 
+                                 style="margin-bottom: 20px" 
+                                 emptyMessage="No hay registros"
+
+                                 rows="10" paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15">
+                        <f:facet name="header">
+                            Usuarios del sistema
+                        </f:facet>
+
+                        <p:ajax event="rowEdit" listener="#{usuarioBean.onRowEdit}" update=":idForm:idMensaje"/>
+
+                        <p:ajax event="rowEditCancel" listener="#{usuarioBean.onRowCancel}" update=":idForm:idMensaje" />
+
+                        <p:column headerText="idUsuario" style="width: 200px">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.idusuario}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText  value="#{registro.idusuario}" style="width: 100px"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Nombre" >
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.nombre}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.nombre}" style="width: 100px"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+
+                        <p:column headerText="Apellido" >
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.apellido}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.apellido}" style="width: 100px"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Nombre de usuario" >
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.nombreusuario}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.nombreusuario}" style="width: 100px"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="contrasenia" >
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.contrasenia}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.contrasenia}" style="width: 100px"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Tipo" >
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.tipo}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.tipo}" style="width: 100px"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width: 72px" headerText="Editar">
+                            <p:rowEditor/>
+                        </p:column>
+
+                        <p:column style="width: 82px" headerText="eliminar">
+                            <p:commandButton title="eliminar el registro"
+                                             action="#{usuarioBean.eliminarRegistro(registro)}"
+                                             icon="ui-icon-trash"
+                                             update=":idForm:idTabla"/>
+                        </p:column> 
+
+                    </p:dataTable>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
