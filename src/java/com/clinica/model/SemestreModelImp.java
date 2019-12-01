@@ -16,12 +16,13 @@ import org.hibernate.cfg.Configuration;
  *
  * @author macbookair
  */
-public class SemestreModelImp implements ISemestreModel{
+public class SemestreModelImp implements ISemestreModel {
+
     SessionFactory sessionFactory = null;
     Session session = null;
-    
+
     @Override
-    public List<Semestre> obtenerSemestres() {
+    public List<Semestre> obtenerRegistros() {
         List<Semestre> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -33,15 +34,69 @@ public class SemestreModelImp implements ISemestreModel{
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println(e + "Errores");
-            System.out.println("Error");
+            System.out.println(e.getMessage());
         }
         return Lista;
     }
-    
-    public static void main(String[] args) {
-        ISemestreModel sm = new SemestreModelImp();
-        List<Semestre> lista = sm.obtenerSemestres();
+
+    @Override
+    public Semestre obtenerRegistro(String codigo) {
+        Semestre semestre = null;
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            semestre = (Semestre) session.get(Semestre.class, codigo);
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+        return semestre;
     }
-    
+
+    @Override
+    public void crearRegistro(Semestre semestre) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(semestre);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void actualizarRegistro(Semestre semestre) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.update(semestre);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void eliminarRegistro(Semestre semestre) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.delete(semestre);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

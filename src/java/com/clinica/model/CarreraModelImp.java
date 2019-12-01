@@ -22,7 +22,7 @@ public class CarreraModelImp implements ICarreraModel {
     Session session = null;
 
     @Override
-    public List<Carrera> obtenerCarreras() {
+    public List<Carrera> obtenerRegistros() {
         List<Carrera> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -34,9 +34,69 @@ public class CarreraModelImp implements ICarreraModel {
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println(e + "Errores");
-            System.out.println("Error");
+            System.out.println(e.getMessage());
         }
         return Lista;
+    }
+
+    @Override
+    public Carrera obtenerRegistro(String codigo) {
+        Carrera carrera = null;
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            carrera = (Carrera) session.get(Carrera.class, codigo);
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+        return carrera;
+    }
+
+    @Override
+    public void crearRegistro(Carrera carrera) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(carrera);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    @Override
+    public void actualizarRegistro(Carrera carrera) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.update(carrera);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void eliminarRegistro(Carrera carrera) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.delete(carrera);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
