@@ -1,17 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
+        <h:form>  
+            <p:growl id="messages" showDetail="true" />
 
-        <ui:composition template="./template.xhtml">
-
-            <ui:define name="left">
-                left
-            </ui:define>
-
-        </ui:composition>
+            <p:tieredMenu style="width:200px">
+                <p:submenu label="Usuario" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages" ajax="false" icon="pi pi-table" />
+                </p:submenu>
+                <p:submenu label="Practica" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages" ajax="false" icon="pi pi-table" />
+                </p:submenu>
+                <p:submenu label="Alumno" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages"  ajax="false" icon=" pi pi-table"/>
+                </p:submenu>
+                <p:submenu label="Registro" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages"  ajax="false" icon=" pi pi-table"/>
+                </p:submenu>
+                <p:separator/>
+                <p:submenu label="Rol" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages"  ajax="false" icon=" pi pi-table"/>
+                </p:submenu>
+                <p:submenu label="Carrera" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages"  ajax="false" icon=" pi pi-table"/>
+                </p:submenu>
+                <p:submenu label="Semestre" icon="pi pi-sitemap">
+                    <p:menuitem value="Crear" url="#" update="messages" ajax="false" icon="pi pi-plus" />
+                    <p:menuitem value="Listar" url="#" update="messages"  ajax="false" icon=" pi pi-table"/>
+                </p:submenu>
+            </p:tieredMenu>
+            
+        </h:form>
 
     </body>
 </html>

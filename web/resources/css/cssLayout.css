@@ -5,20 +5,24 @@
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
+    text-align: center;
 }
 
 #bottom {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    width: 98%;
     background-color: #c2dfef;
     padding: 5px;
     margin: 10px 0px 0px 0px;
+    text-align: center;
 }
 
 #left {
     float: left;
     background-color: #ece3a5;
     padding: 5px;
-    width: 150px;
+    width: 210px;
 }
 
 #right {
@@ -37,7 +41,7 @@
 .left_content {
     background-color: #dddddd;
     padding: 5px;
-    margin-left: 170px;
+    margin-left: 230px;
 }
 
 .right_content {
@@ -47,15 +51,15 @@
 }
 
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
 
