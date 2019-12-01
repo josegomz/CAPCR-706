@@ -39,28 +39,70 @@ public class PracticaModelImp implements IPracticaModel {
         }
         return Lista;
     }
-    public static void main(String[] args) {
+    @Override
+    public Practica obtenerRegistro(String codigo) {
+        Practica practica = null;
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            practica = (Practica) session.get(Practica.class, codigo);
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+        return practica;
+    }
+
+    @Override
+    public void crearRegistro(Practica practica) {
+         try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(practica);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void eliminarRegistro(Practica practica) {
+         try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.delete(practica);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void actualizarRegistro(Practica practica) {
+      try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.update(practica);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+    }
+    
+      public static void main(String[] args) {
         IPracticaModel pm = new PracticaModelImp();
-        System.out.println(pm.obtenerRegistros());
-    }
-
-    @Override
-    public Practica obtenerRegistro() {
-        return null;
-    }
-
-    @Override
-    public void crearRegistro() {
-        
-    }
-
-    @Override
-    public void eliminarRegistro() {
-        
-    }
-
-    @Override
-    public void editarRegistro() {
+        //System.out.println(pm.obtenerRegistros());
+        //System.out.println((pm.obtenerRegistro("3003")).getNombre());
         
     }
 }

@@ -14,4 +14,8 @@ import java.util.List;
  */
 public interface IPracticaService {
     public List<Practica> obtenerRegistros();
+    public Practica obtenerRegistro(String codigo);
+    public void crearRegistro(Practica practica);
+    public void eliminarRegistro(Practica practica);
+    public void actualizarRegistro(Practica practica);
 }
