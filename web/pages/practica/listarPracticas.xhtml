@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+
+            <ui:define name="content">
+                <h:form id="idForm">
+                    <p:growl id="idMensaje" showDetail="true"/>
+                    <p:dataTable
+                        id="idTabla"
+                        var="registro"
+                        value="#{practicaBean.listaPractica}"
+                        rowKey="#{registro.codigo}"
+                        editable="true"
+                        style="margin-bottom: 20px"
+                        emptyMessage="No Hay Registros"
+                        rows="10"
+                        paginator="true"
+                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="5,10,15">
+                        <f:facet name="header">
+                            Lista de Prácticas
+                        </f:facet>
+                        <p:ajax event="rowEdit" listener="#{practicaBean.onRowEdit}"
+                                update=":idForm:idMensaje"/>
+                        <p:ajax event="rowEditCancel" listener="#{practicaBean.onRowCancel}"
+                                update=":idForm:idMensaje"/>
+                        <p:column headerText="Código" style="width: 200px">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.codigo}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText  value="#{registro.codigo}" style="width: 100%"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.nombre}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.nombre}" style="width: 100%"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column style="width: 72px" headerText="Editar">
+                            <p:rowEditor/>
+                        </p:column>
+                        <p:column style="width: 82px" headerText="Eliminar">
+                            <p:commandButton title="Eliminar Registro"
+                                             action="#{practicaBean.eliminarRegistro(registro)}"
+                                             icon="ui-icon-trash"
+                                             update=":idForm:idTabla">
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>    
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
