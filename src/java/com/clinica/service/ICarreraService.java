@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.clinica.model;
+package com.clinica.service;
 
 import com.clinica.entity.Carrera;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author macbookair
  */
-public interface ICarreraModel {
+public interface ICarreraService {
     public List<Carrera> obtenerRegistros();
     public Carrera obtenerRegistro(String codigo);
     public void crearRegistro(Carrera carrera);
