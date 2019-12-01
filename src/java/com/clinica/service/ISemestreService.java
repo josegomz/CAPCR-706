@@ -13,7 +13,7 @@ import java.util.List;
  * @author macbookair
  */
 public interface ISemestreService {
-    public List<Semestre> obtenerSemestres();
+    public List<Semestre> obtenerRegistros();
     public Semestre obtenerRegistro(String codigo);
     public void crearRegistro(Semestre semestre);
     public void actualizarRegistro(Semestre semestre);

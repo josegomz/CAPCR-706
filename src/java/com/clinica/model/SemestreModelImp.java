@@ -22,7 +22,7 @@ public class SemestreModelImp implements ISemestreModel {
     Session session = null;
 
     @Override
-    public List<Semestre> obtenerSemestres() {
+    public List<Semestre> obtenerRegistros() {
         List<Semestre> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();

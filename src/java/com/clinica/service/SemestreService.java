@@ -22,8 +22,8 @@ public class SemestreService implements ISemestreService{
     private final ISemestreModel sm = new SemestreModelImp();
 
     @Override
-    public List<Semestre> obtenerSemestres() {
-        return sm.obtenerSemestres();
+    public List<Semestre> obtenerRegistros() {
+        return sm.obtenerRegistros();
     }
 
     @Override
