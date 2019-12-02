@@ -24,7 +24,7 @@
 
 #left {
     position: fixed;
-    z-index: 90;
+    z-index: 101;
     float: left;
     background-color: #FFFFFF;
     padding: 5px;
@@ -48,6 +48,7 @@
     margin-top: 130px;
     background: #FFFFFF;
     margin-left: 21%;
+    right: 0;
 }
 
 .right_content {
