@@ -1,9 +1,10 @@
 
 #top {
     position: relative;
-    background-color: #036fab;
+    background: linear-gradient(to right, #670300, #9A3633);
     color: white;
     padding: 5px;
+    font-size: 23px;
     margin: 0px 0px 10px 0px;
     text-align: center;
 }
