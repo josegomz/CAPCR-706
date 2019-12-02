@@ -1,52 +1,57 @@
 
 #top {
-    position: relative;
+    top:0;
+    position: fixed;
+    width: 100%;
     background: linear-gradient(to right, #670300, #9A3633);
     color: white;
-    padding: 5px;
+    padding-top: 10px;
     font-size: 23px;
-    margin: 0px 0px 10px 0px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    z-index: 100;
 }
 
 #bottom {
-    position: absolute;
+    position: relative;
     bottom: 0;
-    width: 98%;
-    background-color: #c2dfef;
+    width: 100%;
+    background-color: #eeeeee;
     padding: 5px;
     margin: 10px 0px 0px 0px;
     text-align: center;
 }
 
 #left {
+    position: fixed;
+    z-index: 90;
     float: left;
-    background-color: #ece3a5;
+    background-color: #FFFFFF;
     padding: 5px;
-    width: 210px;
+    width: 21%;
 }
 
 #right {
     float: right;
-    background-color: #ece3a5;
+    background-color: #ECE3A5;
     padding: 5px;
     width: 150px;
 }
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
-    padding: 5px;
+    background-color: #DDDDDD;
+    padding: 10px;
 }
 
 .left_content {
-    background-color: #dddddd;
-    padding: 5px;
-    margin-left: 230px;
+    margin-top: 130px;
+    background: #FFFFFF;
+    margin-left: 21%;
 }
 
 .right_content {
-    background-color: #dddddd;
+    background-color: #DDDDDD;
     padding: 5px;
     margin: 0px 170px 0px 170px;
 }
@@ -62,5 +67,12 @@
     font-weight : bold;
     text-decoration : underline;
 }
-
-
+.container-home{
+    background-image: url('../img/background/bg-1.png');
+    background-size: inherit;
+    background-attachment: fixed;
+    padding: 15px;
+}
+.card {
+    width: 300px;
+}
