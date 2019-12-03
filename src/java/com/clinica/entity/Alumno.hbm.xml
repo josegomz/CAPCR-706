@@ -6,7 +6,7 @@
     <class name="com.clinica.entity.Alumno" table="alumno" schema="public" optimistic-lock="version">
         <id name="matricula" type="string">
             <column name="matricula" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="carrera" class="com.clinica.entity.Carrera" fetch="select">
             <column name="codigocarrera" not-null="true" />

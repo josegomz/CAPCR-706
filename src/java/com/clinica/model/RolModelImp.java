@@ -22,7 +22,7 @@ public class RolModelImp implements IRolModel {
     Session session = null;
 
     @Override
-    public List<Rol> obtenerRoles() {
+    public List<Rol> obtenerRegistros() {
         List<Rol> Lista = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -38,5 +38,65 @@ public class RolModelImp implements IRolModel {
             System.out.println("Error");
         }
         return Lista;
+    }
+
+    @Override
+    public void crearRegistro(Rol rol) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(rol);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void actualizarRegistro(Rol rol) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.update(rol);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void eliminarRegistro(Rol rol) {
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.delete(rol);
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public Rol obtenerRegistro(Long idRol) {
+                Rol rol = null;
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            rol = (Rol)session.get(Rol.class, idRol);
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+
+        }
+        return rol;
     }
 }
