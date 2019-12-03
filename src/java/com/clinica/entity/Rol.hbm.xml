@@ -6,7 +6,7 @@
     <class name="com.clinica.entity.Rol" table="rol" schema="public" optimistic-lock="version">
         <id name="idrol" type="long">
             <column name="idrol" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="nombre" type="string">
             <column name="nombre" not-null="true" />

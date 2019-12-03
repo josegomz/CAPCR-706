@@ -6,7 +6,7 @@
     <class name="com.clinica.entity.Carrera" table="carrera" schema="public" optimistic-lock="version">
         <id name="codigo" type="string">
             <column name="codigo" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="nombre" type="string">
             <column name="nombre" not-null="true" />

@@ -26,7 +26,7 @@ public class Rol  implements java.io.Serializable {
     public Rol(long idrol, String nombre, Set usuarios) {
        this.idrol = idrol;
        this.nombre = nombre;
-      this.usuarios = usuarios;
+       this.usuarios = usuarios;
     }
    
     public long getIdrol() {
