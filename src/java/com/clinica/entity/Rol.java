@@ -13,7 +13,7 @@ public class Rol  implements java.io.Serializable {
 
      private long idrol;
      private String nombre;
-     //private Set usuarios = new HashSet(0);
+     private Set usuarios = new HashSet(0);
 
     public Rol() {
     }
@@ -26,7 +26,7 @@ public class Rol  implements java.io.Serializable {
     public Rol(long idrol, String nombre, Set usuarios) {
        this.idrol = idrol;
        this.nombre = nombre;
-      // this.usuarios = usuarios;
+       this.usuarios = usuarios;
     }
    
     public long getIdrol() {
@@ -43,13 +43,13 @@ public class Rol  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-//    public Set getUsuarios() {
-//        return this.usuarios;
-//    }
-//    
-//    public void setUsuarios(Set usuarios) {
-//        this.usuarios = usuarios;
-//    }
+    public Set getUsuarios() {
+        return this.usuarios;
+    }
+    
+    public void setUsuarios(Set usuarios) {
+        this.usuarios = usuarios;
+    }
 
 
 
