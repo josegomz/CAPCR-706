@@ -1,99 +1,74 @@
 -- -------------------------------------------------------------------------------
 -- CREACION DE LAS TABLAS SEMESTRE, CARRERA, PRACTICA, ALUMNO, USUARIO, REGISTRO
 -- -------------------------------------------------------------------------------
-create table Semestre(
-    codigo text not null,
+create table semestre(
+    codigo text not null ,
     nombre text not null,
     constraint pk_semestre primary key(codigo)
 );
 
-create table Carrera(
+create table carrera(
     codigo text not null,
     nombre text not null,
-    constraint pk_codigoC primary key(codigo)
+    constraint pk_carrera primary key(codigo)
 );  
 
-create table Practica(
+create table practica(
     codigo text not null,
     nombre text not null,
-    codigoSemestre text not null,
-    codigoCarrera text not null,
-    fechaCreacion timestamp(0) not null,
-    fechaActualizacion timestamp(0),
-    fechaEliminacion timestamp(0),
-    constraint fk_Psemestre foreign key(codigoSemestre) references Semestre(codigo)
-    on delete cascade
-    on update cascade,
-    constraint fk_Pcarrera foreign key(codigoCarrera) references Carrera(codigo)
-    on delete cascade
-    on update cascade,
+    codigosemestre text not null,
+    codigocarrera text not null,
+    fechacreacion timestamp(0) not null,
+    fechaactualizacion timestamp(0),
+    fechaeliminacion timestamp(0),
+    constraint fk_psemestre foreign key(codigosemestre) references semestre(codigo) on delete cascade on update cascade,
+    constraint fk_pcarrera foreign key(codigocarrera) references carrera(codigo) on delete cascade on update cascade,
     constraint pk_practica primary key (codigo)
     );
    
-create table Alumno(
+create table alumno(
     matricula text not null,
     nombre text not null,
     grupo text not null,
-    fechaCreacion timestamp(0) not null,
-    fechaActualizacion timestamp(0),
-    fechaEliminacion timestamp(0),
-    codigoSemestre text not null,
-    codigoCarrera text not null,
+    fechacreacion timestamp(0) not null,
+    fechaactualizacion timestamp(0),
+    fechaeliminacion timestamp(0),
+    codigosemestre text not null,
+    codigocarrera text not null,
     constraint pk_alumno primary key (matricula),
-    constraint fk_Asemestre foreign key(codigoSemestre)	references Semestre(codigo)
-    on delete cascade
-    on update cascade,
-    constraint fk_Acarrrera foreign key(codigoCarrera) references Carrera(codigo)
-    on delete cascade
-    on update cascade
+    constraint fk_asemestre foreign key(codigosemestre) references semestre(codigo) on delete cascade on update cascade,
+    constraint fk_acarrrera foreign key(codigocarrera) references carrera(codigo) on delete cascade on update cascade
 );
 
-create table Registro(
+create table registro(
     idregistro bigserial not null,
-    matriculaAlumno text not null,
-    codigoPractica text not null,
-    horaEntrada time(0) ,
-    horaSalida time(0) ,
+    matriculaalumno text not null,
+    codigopractica text not null,
+    horaentrada time(0) ,
+    horasalida time(0) ,
     fecha date,
     sustituye text not null,
     estado text not null,
     comentario text,
     constraint pk_registro primary key(idregistro),
-    constraint fk_alumno foreign key (matriculaAlumno)	references Alumno(matricula)
-    on delete cascade
-    on update cascade,
-    constraint fk_practica foreign key(codigoPractica)	references Practica(codigo)
-    on delete restrict
-    on update cascade
+    constraint fk_ralumno foreign key (matriculaalumno) references alumno(matricula) on delete cascade on update cascade,
+    constraint fk_practica foreign key(codigopractica)  references practica(codigo) on delete restrict on update cascade
 );   
-create table Rol(
+create table rol(
     idrol bigserial not null,
     nombre text not null,
     constraint pk_rol primary key(idrol)
 );
 
-create table Usuario(
+create table usuario(
     idusuario bigserial not null,
     nombre text not null,
     apellido text not null,
-    nombreUsuario text not null,
-    contraseña text not null,
+    nombreusuario text not null,
+    contrasenia text not null,
     tipo int not null,
     constraint pk_usuario primary key(idusuario),
-    constraint fk_rol foreign key(tipo) references Rol(idrol)
-    on delete restrict
-    on update cascade
-);
-
-create table Reservacion(
-    idReservacion bigserial not null,
-    fechaInicio timestamp(0) not null,
-    fechaFin timestamp(0) not null,
-    area text not null,
-    responsableArea text not null,
-    practica text not null,
-    responsablePractica text not null,
-    constraint pk_reservacion primary key(idReservacion)
+    constraint fk_urol foreign key(tipo) references rol(idrol) on delete restrict on update cascade
 );
 
 -- insertar los datos de la tabla semestre
@@ -175,11 +150,4 @@ insert into Usuario values(1,'arministrador','1','root','root',2);
 insert into Usuario values(2,'encargado','1','encargado','secreto',3);
 insert into Usuario values(3,'rolando','pedro gabriel','profesor123','user123',4);
 insert into Usuario values(4,'alumno','1','alumnuss','students2019',5);
-
--- insertamos datos en la tabla reservacion
-insert into Reservacion values(1,now(),now(),'area1','responsable area 1','practica 1','responsable practica 1');
-insert into Reservacion values(2,now(),now(),'area2','responsable area 2','practica 2','responsable practica 2');
-insert into Reservacion values(3,now(),now(),'area3','responsable area 3','practica 3','responsable practica 3');
-insert into Reservacion values(4,now(),now(),'area4','responsable area 4','practica 4','responsable practica 4');
-
 

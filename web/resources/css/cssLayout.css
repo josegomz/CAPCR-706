@@ -1,61 +1,79 @@
 
 #top {
-    position: relative;
-    background-color: #036fab;
+    top:0;
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to right, #670300, #9A3633);
     color: white;
-    padding: 5px;
-    margin: 0px 0px 10px 0px;
+    padding-top: 10px;
+    font-size: 23px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    z-index: 100;
 }
 
 #bottom {
     position: relative;
-    background-color: #c2dfef;
+    bottom: 0;
+    width: 100%;
+    background-color: #eeeeee;
     padding: 5px;
     margin: 10px 0px 0px 0px;
+    text-align: center;
 }
 
 #left {
+    position: fixed;
+    z-index: 101;
     float: left;
-    background-color: #ece3a5;
+    background-color: #FFFFFF;
     padding: 5px;
-    width: 150px;
+    width: 21%;
 }
 
 #right {
     float: right;
-    background-color: #ece3a5;
+    background-color: #ECE3A5;
     padding: 5px;
     width: 150px;
 }
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
-    padding: 5px;
+    background-color: #DDDDDD;
+    padding: 10px;
 }
 
 .left_content {
-    background-color: #dddddd;
-    padding: 5px;
-    margin-left: 170px;
+    margin-top: 130px;
+    background: #FFFFFF;
+    margin-left: 21%;
+    right: 0;
 }
 
 .right_content {
-    background-color: #dddddd;
+    background-color: #DDDDDD;
     padding: 5px;
     margin: 0px 170px 0px 170px;
 }
 
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
-
-
+.container-home{
+    background-image: url('../img/background/bg-1.png');
+    background-size: inherit;
+    background-attachment: fixed;
+    padding: 15px;
+}
+.card {
+    width: 300px;
+}
