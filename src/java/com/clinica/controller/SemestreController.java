@@ -50,7 +50,6 @@ public class SemestreController {
     public void setService(ISemestreService service) {
         this.service = service;
     }
-    
 
     public void onRowEdit(RowEditEvent event) {
         Semestre semestreSelected = ((Semestre) event.getObject());
@@ -66,16 +65,22 @@ public class SemestreController {
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
 
-    public void crearRegistro(){
+    public void crearRegistro() {
         this.service.crearRegistro(semestre);
-        
+        FacesMessage mensaje = new FacesMessage("Semestre creado exitosamente", semestre.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+
     }
-    
-    public void actualizarRegistro(){
+
+    public void actualizarRegistro() {
         this.service.actualizarRegistro(semestre);
+        FacesMessage mensaje = new FacesMessage("Semestre actualizado exitosamente", semestre.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-    
-    public void eliminarRegistro(){
+
+    public void eliminarRegistro(Semestre semestre) {
         this.service.eliminarRegistro(semestre);
+        FacesMessage mensaje = new FacesMessage("Semestre eliminado exitosamente", semestre.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
 }
