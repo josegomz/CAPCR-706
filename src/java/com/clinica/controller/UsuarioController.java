@@ -41,10 +41,20 @@ public class UsuarioController implements Serializable{
         this.listaUsuario = service.obtenerRegistros();
     }
     
+    public String mostrarRol(Long idrol) {
+        if(idrol == 1){
+            return "Admin";
+        }
+        else{
+            return "super";
+        }
+    }
+    
     public void onRowEdit(RowEditEvent event) {
-        Usuario ligaSelected = ((Usuario) event.getObject());
-        service.actualizararRegistro(ligaSelected);
-        FacesMessage mensaje = new FacesMessage("Actualización procesada",ligaSelected.getNombre());
+        System.out.println("----->");
+        Usuario usuarioSelected = ((Usuario) event.getObject());
+        service.actualizararRegistro(usuarioSelected);
+        FacesMessage mensaje = new FacesMessage("Actualización procesada",usuarioSelected.getNombre());
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
 

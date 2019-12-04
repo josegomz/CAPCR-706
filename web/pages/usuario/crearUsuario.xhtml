@@ -1,16 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <body>
-        <div>TODO write content</div>
+        <ui:composition template="./../template/template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <p:growl id="grow" sticky="true" showDetail="true"/>
+                    <p:panel header="REGISTRO DE USUARIOS DEL SISTEMA">
+                        <h:panelGrid columns="2"  columnClasses="label, value">
+                            <h:outputText value="Nombre: "/>
+                            <p:inputText value="#{usuarioBean.usuario.nombre}" required="true"  label="Nombre"/>
+                            <h:outputText value="Apellido: "/>
+                            <p:inputText value="#{usuarioBean.usuario.apellido}" required="true"  label="Nombre"/>
+                            <h:outputText value="Nombre de usuario: "/>
+                            <p:inputText value="#{usuarioBean.usuario.nombreusuario}" required="true"  label="Nombre"/>
+                            <h:outputText value="Contraseña: "/>
+                            <p:inputText value="#{usuarioBean.usuario.contrasenia}" required="true"  label="Nombre"/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p:commandButton value="REGISTRAR" action="#{usuarioBean.crearRegistro()}" icon="pi pi-check"/>
+                        </h:panelGrid>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </body>
 </html>
