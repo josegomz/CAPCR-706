@@ -20,16 +20,17 @@ import org.primefaces.event.RowEditEvent;
  *
  * @author Josegomz
  */
-@ManagedBean(name="rolBean")
+@ManagedBean(name = "rolBean")
 @ViewScoped
 public class RolController {
+
     @ManagedProperty("#{rolService}")
     private IRolService service;
     private Rol rol;
     private List<Rol> lista;
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         rol = new Rol();
         this.lista = service.obtenerRegistros();
     }
@@ -50,28 +51,35 @@ public class RolController {
         this.service = service;
     }
 
-    public void onRowEdit(RowEditEvent event){
-        Rol rolSelected =((Rol) event.getObject());
+    public void onRowEdit(RowEditEvent event) {
+        Rol rolSelected = ((Rol) event.getObject());
         service.actualizarRegistro(rolSelected);
         FacesMessage mensaje = new FacesMessage("Registro Actualizado Correctamente",
                 rolSelected.getNombre());
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-     public void onRowCancel(RowEditEvent event){
+
+    public void onRowCancel(RowEditEvent event) {
         FacesMessage mensaje = new FacesMessage("Actualización cancelada",
                 ((Rol) event.getObject()).getNombre());
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-    
-     public void crearRegistro(){
-         this.service.crearRegistro(rol);
-     }
-     
-     public void actualizarRegistro(){
-         this.service.actualizarRegistro(rol);
-     }
-     
-     public void eliminarRegistro(){
-         this.service.eliminarRegistro(rol);
-     }
+
+    public void crearRegistro() {
+        this.service.crearRegistro(rol);
+        FacesMessage mensaje = new FacesMessage("Rol creado Correctamente", rol.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
+
+    public void actualizarRegistro() {
+        this.service.actualizarRegistro(rol);
+        FacesMessage mensaje = new FacesMessage("Rol actualizado Correctamente", rol.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
+
+    public void eliminarRegistro(Rol rol) {
+        this.service.eliminarRegistro(rol);
+        FacesMessage mensaje = new FacesMessage("Rol eliminado Correctamente", rol.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
 }
