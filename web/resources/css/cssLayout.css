@@ -1,7 +1,6 @@
 
 #top {
-    top:0;
-    position: fixed;
+    position: relative;
     width: 100%;
     background: linear-gradient(to right, #670300, #9A3633);
     color: white;
@@ -23,7 +22,7 @@
 }
 
 #left {
-    position: fixed;
+    position: relative;
     z-index: 101;
     float: left;
     background-color: #FFFFFF;
@@ -45,7 +44,7 @@
 }
 
 .left_content {
-    margin-top: 130px;
+    
     background: #FFFFFF;
     margin-left: 21%;
     right: 0;
@@ -76,4 +75,10 @@
 }
 .card {
     width: 300px;
+}
+.ui-helper-clearfix:after{
+    content: initial !important;
+}
+.label{
+    color: #000000 !important;
 }

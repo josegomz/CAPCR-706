@@ -31,7 +31,7 @@ and open the template in the editor.
 .well{
     background: rgba(240,240,240,0.85) !important;
     padding: 15px 0px !important;
-    
+
 }
 .well>ul>li{
     font-family: 'Open Sans', sans-serif;
@@ -48,4 +48,61 @@ and open the template in the editor.
     color: #7db53b;
     font-size: 2em;
     font-weight: bold;
+}
+.ui-panel{
+
+}
+.ui-growl-item-container{
+    background: burlywood;
+    opacity: .9;
+    width: 300px;
+}
+.ui-widget-header{
+    background: linear-gradient(to right, #670300, #9A3633);
+    color: #FFFF99;
+}
+.ui-widget-content > table{
+    margin: 0 auto;
+}
+
+.ui-menu,.ui-menu-child{
+    background: #FFFFFF !important;
+    border: none;
+}
+.ui-menuitem{
+    padding: 5px 0 !important;
+}
+
+.ui-state-hover,.ui-menuitem:hover,.ui-menuitem-link:hover{
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+
+}
+.ui-state-hover{
+    font-size: 1.1em !important;
+    color: #670300 !important;
+    font-weight: bold !important;
+}
+.pr-40{
+    padding-right: 40px;
+}
+
+/*botones*/
+.btn-success{
+    color: #FFFFFF !important;
+    background: linear-gradient(#670300, #9A3633) !important;
+    border-color: #670300 !important; 
+    font-size: 14px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+}
+.ui-state-default{
+}
+
+ul > li{
+    list-style: none;
+    text-align: left
+}
+.fa{
+    color: #670300
 }

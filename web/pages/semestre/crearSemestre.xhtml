@@ -13,7 +13,7 @@
                 <h:form id="idform">
                     <p:growl id="idmensaje" sticky="true" showDetail="true"/>
                     <p:panel header="Registro Semestre">
-                        <p:panelGrid columns="2" columnClasses="label,value">
+                        <h:panelGrid columns="2" columnClasses="label,value">
                             <h:outputText value="código: *"/>
                             <p:inputText value="#{semestreBean.semestre.codigo}"
                                          required="true"
@@ -25,8 +25,9 @@
                             <p:commandButton value="Registrar Carrera"
                                              action="#{semestreBean.crearRegistro()}"
                                              update=":idform:idmensaje"
-                                             icon="pi pi-check"/>
-                        </p:panelGrid>
+                                             icon="pi pi-check"
+                                             class="btn btn-success"/>
+                        </h:panelGrid>
                     </p:panel>
                 </h:form>
             </ui:define>

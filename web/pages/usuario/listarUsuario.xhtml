@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
     <body>
 
         <ui:composition template="./../template/template.xhtml">
@@ -65,7 +66,7 @@
                             </p:cellEditor>
                         </p:column>
 
-                        <p:column headerText="contrasenia" >
+                        <p:column headerText="Contraseña" >
                             <p:cellEditor>
                                 <f:facet name="output">
                                     <h:outputText value="#{registro.contrasenia}"/>
@@ -88,7 +89,9 @@
                             <p:commandButton title="eliminar el registro"
                                              action="#{usuarioBean.eliminarRegistro(registro)}"
                                              icon="ui-icon-trash"
-                                             update=":idForm:idTabla"/>
+                                             update=":idForm:idTabla"
+                                             class="btn btn-danger"/>
+                            
                         </p:column> 
                     </p:dataTable>
                 </h:form>

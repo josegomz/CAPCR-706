@@ -25,34 +25,3 @@ a:link:hover, a:visited:hover  {
   font-weight : bold;
   font-size: 1.1em;
 }
-.ui-menu,.ui-menu-child{
-    background: #FFFFFF !important;
-    border: none;
-}
-.ui-menuitem{
-    padding: 5px 0 !important;
-}
-
-.ui-state-hover,.ui-menuitem:hover,.ui-menuitem-link:hover{
-    background: #FFFFFF !important;
-    box-shadow: none !important;
-
-}
-.ui-state-hover{
-    font-size: 1.1em !important;
-    color: #670300 !important;
-    font-weight: bold !important;
-}
-.pr-40{
-    padding-right: 40px;
-}
-
-/*botones*/
-.btn-success{
-    color: #FFFFFF;
-    background-color: #670300 !important;
-    border-color: #670300 !important; 
-    font-size: 14px !important;
-    font-weight: bold !important;
-    text-transform: uppercase !important;
-}
