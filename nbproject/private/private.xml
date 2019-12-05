@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/macbookair/NetBeansProjects/CAPCR-706/web/pages/template/template.xhtml</file>
-            <file>file:/Users/macbookair/NetBeansProjects/CAPCR-706/web/pages/template/header.xhtml</file>
-            <file>file:/Users/macbookair/NetBeansProjects/CAPCR-706/web/pages/login/login.xhtml</file>
-            <file>file:/Users/macbookair/NetBeansProjects/CAPCR-706/web/resources/css/style.css</file>
-            <file>file:/Users/macbookair/NetBeansProjects/CAPCR-706/web/pages/inicio/home.xhtml</file>
-            <file>file:/Users/macbookair/NetBeansProjects/CAPCR-706/web/pages/template/menu.xhtml</file>
+            <file>file:/home/labtw10/NetBeansProjects/CAPCR-706/src/java/com/clinica/model/AlumnoModelImp.java</file>
+            <file>file:/home/labtw10/NetBeansProjects/CAPCR-706/src/java/com/clinica/controller/AlumnoController.java</file>
+            <file>file:/home/labtw10/NetBeansProjects/CAPCR-706/web/pages/alumno/crearAlumno.xhtml</file>
         </group>
     </open-files>
 </project-private>
