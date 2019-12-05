@@ -10,8 +10,8 @@
         <ui:composition template="./../template/template.xhtml">
 
             <ui:define name="content">
-                <h:form>
-                    <p:growl id="growl" sticky="true" showDetail="true"/>
+                <h:form id="idform">
+                    <p:growl id="idmensaje" sticky="true" showDetail="true"/>
                     <p:panel header="Registro Prácticas">
                         <p:panelGrid columns="2" columnClasses="label,value">
                             <h:outputText value="código: *"/>
@@ -22,23 +22,22 @@
                             <p:inputText value="#{practicaBean.practica.nombre}"
                                          required="true"
                                          label="Nombre "/>
-                            <h:outputText value="Código Semestre: *"/>
+                            <h:outputText value="Semestre: *"/>
                             <p:selectOneMenu
                                 value="#{practicaBean.selectedSemestre}"
-                                
                                 >
                                 <f:selectItem itemLabel="Seleccione un Semestre"/>
-                                <f:selectItems value="#{semestreBean.listSemestre}"
+                                <f:selectItems value="#{semestreBean.lista}"
                                                var="semestre"
                                                itemLabel="#{semestre.codigo} - #{semestre.nombre}"/>
                                 
                             </p:selectOneMenu>
+                            <h:outputText value="Carrera: *"/>
                             <p:selectOneMenu
                                 value="#{practicaBean.selectedCarrera}"
-                                
                                 >
                                 <f:selectItem itemLabel="Seleccione una Carrera"/>
-                                <f:selectItems value="#{carreraBean.listCarrera}"
+                                <f:selectItems value="#{carreraBean.lista}"
                                                var="carrera"
                                                itemLabel="#{carrera.codigo} - #{carrera.nombre}"/>
                                 
@@ -48,9 +47,9 @@
                             <br/>
                             <p:commandButton value="Registrar Práctica"
                                              action="#{practicaBean.crearRegistro()}"
+                                             update=":idform:idmensaje"
                                              icon="pi pi-check"/>
                         </p:panelGrid>
-                        
                     </p:panel>
                 </h:form>
             </ui:define>
