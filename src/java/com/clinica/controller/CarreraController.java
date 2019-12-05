@@ -21,16 +21,16 @@ import org.primefaces.event.RowEditEvent;
  *
  * @author macbookair
  */
-@ManagedBean(name="carreraBean")
+@ManagedBean(name = "carreraBean")
 @ViewScoped
-public class CarreraController implements Serializable{
-      
+public class CarreraController implements Serializable {
+
     @ManagedProperty("#{carreraService}")
     private ICarreraService service;
-    
+
     private Carrera carrera;
     private List<Carrera> lista;
-    
+
     @PostConstruct
     public void init() {
         carrera = new Carrera();
@@ -52,8 +52,7 @@ public class CarreraController implements Serializable{
     public void setService(ICarreraService service) {
         this.service = service;
     }
-    
-    
+
     public void onRowEdit(RowEditEvent event) {
         Carrera carreraSelected = ((Carrera) event.getObject());
         service.actualizarRegistro(carreraSelected);
@@ -68,16 +67,22 @@ public class CarreraController implements Serializable{
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
 
-    public void crearRegistro(){
+    public void crearRegistro() {
         this.service.crearRegistro(carrera);
+        FacesMessage mensaje = new FacesMessage("Carrera creada exitosamente", carrera.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-    
-    public void actualizarRegistro(){
+
+    public void actualizarRegistro() {
         this.service.actualizarRegistro(carrera);
+        FacesMessage mensaje = new FacesMessage("Carrera actualizada exitosamente", carrera.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-    
-    public void eliminarRegistro(){
+
+    public void eliminarRegistro(Carrera carrera) {
         this.service.eliminarRegistro(carrera);
+        FacesMessage mensaje = new FacesMessage("Carrera eliminada exitosamente", carrera.getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-    
+
 }

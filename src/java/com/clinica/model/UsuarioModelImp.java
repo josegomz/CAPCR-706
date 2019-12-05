@@ -1,6 +1,5 @@
 package com.clinica.model;
 
-import com.clinica.entity.Rol;
 import com.clinica.entity.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- *
- * @author macbookair
- */
+
 public class UsuarioModelImp implements IUsuarioModel {
 
     SessionFactory sessionFactory = null;
@@ -39,11 +35,19 @@ public class UsuarioModelImp implements IUsuarioModel {
 
     @Override
     public void crearRegistro(Usuario usuario) {
+        IRolModel rm = new RolModelImp();
+        System.out.println(rm.obtenerRegistro(new Long(1)).getNombre());
+        Usuario u = new Usuario();
+        u.setNombre(usuario.getNombre());
+        u.setApellido(usuario.getApellido());
+        u.setNombreusuario(usuario.getNombreusuario());
+        u.setContrasenia(usuario.getContrasenia());
+        u.setRol(rm.obtenerRegistro(new Long(1)));
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
             session.beginTransaction();
-            session.save(usuario);
+            session.save(u);
             session.getTransaction().commit();
             session.close();
             sessionFactory.close();
@@ -114,24 +118,4 @@ public class UsuarioModelImp implements IUsuarioModel {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-        IUsuarioModel um = new UsuarioModelImp();
-        
-        Rol r = new Rol();
-        r.setNombre("Admin");
-//        r.setUsuarios(usuarios);
-        
-        Usuario u = new Usuario();
-        u.setNombre("Juan");
-        u.setApellido("Perez");
-        u.setNombreusuario("PereLopez");
-        u.setRol(r);
-        um.crearRegistro(u);
-        
-//        System.out.println(um.obtenerUsuarios());
-//System.out.println(um.obtenerRegistros());
-
-    }
-
 }
