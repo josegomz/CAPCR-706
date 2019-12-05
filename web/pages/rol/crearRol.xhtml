@@ -1,33 +1,24 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-
     <body>
-
         <ui:composition template="./../template/template.xhtml">
-
             <ui:define name="content">
                 <h:form id="idform">
                     <p:growl id="idmensaje" sticky="true" showDetail="true"/>
                     <p:panel header="Registro Rol">
-                        <p:panelGrid columns="2" columnClasses="label,value">
+                        <h:panelGrid columns="2" columnClasses="label,value">
                             <h:outputText value="Nombre: *"/>
-                            <p:inputText value="#{rolBean.rol.nombre}"
-                                         required="true"
-                                         label="Nombre "/>
-                            <p:commandButton value="Registrar Carrera"
-                                             action="#{rolBean.crearRegistro()}"
-                                             update=":idform:idmensaje"
-                                             icon="pi pi-check"/>
-                        </p:panelGrid>
+                            <p:inputText value="#{rolBean.rol.nombre}" required="true" label="Nombre "/>
+                            <p:commandButton value="Registrar Carrera" action="#{rolBean.crearRegistro()}" update=":idform:idmensaje" icon="pi pi-check" class="btn-success btn"/>
+                        </h:panelGrid>
                     </p:panel>
                 </h:form>
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>
